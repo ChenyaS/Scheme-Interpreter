@@ -4,14 +4,14 @@ A team project to build a Scheme Interpreter. You will have to provide evidence 
 Instructions:
 In this project, you will develop an interpreter for a subset of the Scheme language. As you proceed, think about the issues that arise in the design of a programming language; many quirks of languages are byproducts of implementation decisions in interpreters and compilers. The subset of the language used in this project is described in the functional programming
 
-Links to an external site. section of Composing Programs, as well as this language specification Links to an external site. and built-in procedure reference
+  section of Composing Programs, as well as this language specification   and built-in procedure reference
 
-Links to an external site..
+ .
 
 Watch the lecture on Interpreters for an overview of the project.
 
 You can download all of the project code as a zip archive
-Links to an external site..
+ .
 Files you will edit:
 
 scheme_eval_apply.py: the recursive evaluator for Scheme expressions
@@ -85,7 +85,7 @@ You can use your Scheme interpreter to evaluate the expressions in an input file
 python3 scheme.py tests.scm
 The tests.scm file contains a long list of sample Scheme expressions and their expected values. Many of these examples are from Chapters 1 and 2 of Structure and Interpretation of Computer Programs
 
-Links to an external site., the textbook from which Composing Programs is adapted.
+ , the textbook from which Composing Programs is adapted.
 
 Part 1: The Evaluator
 In Part 1, you will develop the following features of the interpreter:
@@ -152,7 +152,7 @@ If calling the function results in a TypeError exception being raised, then the 
 
 👩🏽‍💻👨🏿‍💻 Pair programming?
 
-Links to an external site. Remember to alternate between driver and navigator roles. The driver controls the keyboard; the navigator watches, asks questions, and suggests ideas.
+  Remember to alternate between driver and navigator roles. The driver controls the keyboard; the navigator watches, asks questions, and suggests ideas.
 
 Problem 3 (2 pts)
 The scheme_eval function (in scheme_eval_apply.py) evaluates a Scheme expression (represented as a Pair) in a given environment. The provided code already looks up names in the current environment, returns self-evaluating expressions (such as numbers) and evaluates special forms.
@@ -181,7 +181,7 @@ scm> (odd? 31)
 Problem 4 (2 pts)
 The define special form (spec
 
-Links to an external site.) in Scheme can be used either to assign a symbol to the value of a given expression or to create a procedure and bind it to a symbol:
+ ) in Scheme can be used either to assign a symbol to the value of a given expression or to create a procedure and bind it to a symbol:
 
 scm> (define a (+ 2 3))  ; Binds the symbol a to the value of (+ 2 3)
 a
@@ -214,7 +214,7 @@ If the operator is evaluated twice, then x will be bound to 2 instead of 1 at th
 Problem 5 (2 pts)
 In Scheme, you can quote expressions in two ways: with the quote special form (spec
 
-Links to an external site.) or with the symbol '. The reader converts '... into (quote ...), so that your interpreter only needs to evaluate the (quote ...) syntax. The quote special form returns its operand expression without evaluating it:
+ ) or with the symbol '. The reader converts '... into (quote ...), so that your interpreter only needs to evaluate the (quote ...) syntax. The quote special form returns its operand expression without evaluating it:
 
 scm> (quote hello)
 hello
@@ -263,7 +263,7 @@ env is the environment in which the procedure was defined.
 Problem 6 (2 pts)
 Change the eval_all function in scheme_eval_apply.py (which is called from do_begin_form in scheme_forms.py) to complete the implementation of the begin special form (spec
 
-Links to an external site.).
+ ).
 
 A begin expression is evaluated by evaluating all sub-expressions in order. The value of the begin expression is the value of the final sub-expression.
 
@@ -285,12 +285,12 @@ If eval_all is passed an empty list of expressions (nil), then it should return 
 
 👩🏽‍💻👨🏿‍💻 Pair programming?
 
-Links to an external site. This would be a good time to switch roles. Switching roles makes sure that you both benefit from the learning experience of being in each role.
+  This would be a good time to switch roles. Switching roles makes sure that you both benefit from the learning experience of being in each role.
 
 Problem 7 (2 pt)
 Implement the do_lambda_form function (spec
 
-Links to an external site.) in scheme_forms.py, which creates and returns a LambdaProcedure instance. While you cannot call a user-defined procedure yet, you can verify that you have created the procedure correctly by evaluating a lambda expression.
+ ) in scheme_forms.py, which creates and returns a LambdaProcedure instance. While you cannot call a user-defined procedure yet, you can verify that you have created the procedure correctly by evaluating a lambda expression.
 
 scm> (lambda (x y) (+ x y))
 (lambda (x y) (+ x y))
@@ -314,7 +314,7 @@ You should first create a new Frame instance using the make_child_frame method o
 
 Your new frame should be a child of the frame in which the lambda is defined. Note that the env provided as an argument to scheme_apply is instead the frame in which the procedure is called. See User-Defined Procedures
 
-Links to an external site. to remind yourself of the attributes of LambdaProcedure.
+  to remind yourself of the attributes of LambdaProcedure.
 
 Problem 10 (1 pt)
 Currently, your Scheme interpreter is able to bind symbols to user-defined procedures in the following manner:
@@ -327,7 +327,7 @@ scm> (define (f x) (* x 2))
 f
 Modify the do_define_form function in scheme_forms.py so that it correctly handles define (...) ...) expressions (spec
 
-Links to an external site.).
+ ).
 
 Make sure that it can handle multi-expression bodies. For example,
 
@@ -347,7 +347,7 @@ All of the Scheme proceres we've seen so far use lexical scoping: the parent of 
 
 The mu special form (spec
 
-Links to an external site.; invented for this project) evaluates to a dynamically scoped procedure.
+ ; invented for this project) evaluates to a dynamically scoped procedure.
 
 scm> (define f (mu () (* a b)))
 f
@@ -380,7 +380,7 @@ To get you started, we've provided an implementation of the if special form in t
 Problem 12 (3 pt)
 Implement do_and_form and do_or_form so that and and or expressions (spec
 
-Links to an external site.) are evaluated correctly.
+ ) are evaluated correctly.
 
 The logical forms and and or are short-circuiting. For and, your interpreter should evaluate each sub-expression from left to right, and if any of these is a false value, return that value. Otherwise, return the value of the last sub-expression. If there are no sub-expressions in an and expression, it evaluates to #t.
 
@@ -409,7 +409,7 @@ Important: Use the provided Python functions is_scheme_true and is_scheme_false 
 Problem 13 (3 pt)
 Fill in the missing parts of do_cond_form so that it correctly implements cond (spec
 
-Links to an external site.), returning the value of the first result sub-expression corresponding to a true predicate, or the value of the result sub-expression corresponding to else.
+ ), returning the value of the first result sub-expression corresponding to a true predicate, or the value of the result sub-expression corresponding to else.
 
 Some special cases:
 
@@ -436,7 +436,7 @@ scm> (cond (else))
 Problem 14 (3 pt)
 The let special form (spec
 
-Links to an external site.) binds symbols to values locally, giving them their initial values. For example:
+ ) binds symbols to values locally, giving them their initial values. For example:
 
 scm> (define x 5)
 x
@@ -456,7 +456,7 @@ validate_form: this function can be used to validate the structure of each bindi
 validate_formals: this function validates that its argument is a Scheme list of symbols for which each symbol is distinct.
 Remember to refer to the spec
 
-Links to an external site. if you don't understand any of the test cases!
+  if you don't understand any of the test cases!
 
 Additional Scheme Tests (1 pt)
 Your final task in Part III of this project is to make sure that your scheme interpreter passes the additional suite of tests we have provided.
@@ -473,11 +473,11 @@ Not only is your Scheme interpreter itself a tree-recursive program, but it is f
 
 See the built-in procedure reference
 
-Links to an external site. for descriptions of the behavior of all built-in Scheme procedures.
+  for descriptions of the behavior of all built-in Scheme procedures.
 
 As you use your interpreter, you may discover additional bugs in your interpreter implementation. Therefore, you may find it useful to test your code for these questions in the staff interpreter or the web editor
 
-Links to an external site. and then try it in your own interpreter once you are confident your Scheme code is working. You can also use the web editor to visualize the scheme code you've written and help you debug.
+  and then try it in your own interpreter once you are confident your Scheme code is working. You can also use the web editor to visualize the scheme code you've written and help you debug.
 
 Scheme Editor
 As you're writing your code, you can debug using the local Scheme Editor. To run this editor, run python3 editor. This should open a window in your browser; if it does not, please navigate to localhost:31415 and you should see it.
@@ -486,7 +486,7 @@ Make sure to run python3 ok in a separate tab or window so that the editor keeps
 
 👩🏽‍💻👨🏿‍💻 Pair programming?
 
-Links to an external site. Remember to alternate between driver and navigator roles. The driver controls the keyboard; the navigator watches, asks questions, and suggests ideas.
+  Remember to alternate between driver and navigator roles. The driver controls the keyboard; the navigator watches, asks questions, and suggests ideas.
 
 Problem 15 (3 pt)
 Implement the enumerate procedure, which takes in a list of values and returns a list of two-element lists, where the first element is the index of the value, and the second element is the value itself.
